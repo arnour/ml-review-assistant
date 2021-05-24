@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 pdfplumber = "*"
+nltk = "*"
 
 [dev-packages]
 autopep8 = "==1.5.7"
