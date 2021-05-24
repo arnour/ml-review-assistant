@@ -1,9 +1,10 @@
 
 .DEFAULT_GOAL := build
-.PHONY: build package test lint clean
+.PHONY: build package test coverage lint clean
 PROJ_SLUG = ml_review_assistant
 PY_VERSION = 3.8
 LINTER = flake8
+FIXER = autopep8
 
 build:
 	pip install --editable .
@@ -12,10 +13,16 @@ package: clean docs
 	python setup.py sdist
 
 test:
-	pytest --cov=$(PROJ_SLUG) --cov-report=html tests/
+	coverage run -m unittest
+
+coverage:
+	coverage report --include="ml_review_assistant/**"
 
 lint:
 	$(LINTER) $(PROJ_SLUG)
+
+lintfix:
+	$(FIXER) --in-place --aggressive --aggressive $(PROJ_SLUG)/**/**
 
 clean :
 	rm -rf dist \
