@@ -4,12 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pdfplumber = "*"
-nltk = "*"
+pdfplumber = "==0.5.28"
+nltk = "==3.6.2"
+gensim = "==4.0.1"
+numpy = "==1.20.3"
+requests = "==2.25.1"
 
 [dev-packages]
 autopep8 = "==1.5.7"
 coverage = "==5.5"
+python-levenshtein = "==0.12.2"
 
 [requires]
 python_version = "3.8"
