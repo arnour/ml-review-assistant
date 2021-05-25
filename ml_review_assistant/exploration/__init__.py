@@ -38,8 +38,8 @@ class Explorer:
     def resume(self, topics, model_builder):
         model = model_builder(topics, self.__corpus, self.__dictionary)
         topics_resume = []
-        for topic_id in range(model.num_topics):
-            keywords = [word for word, _ in model.show_topic(topic_id)]
+        for topic_id, weighted in model.show_topics(formatted=False):
+            keywords = [word for word, _ in weighted]
             topics_resume.append(keywords)
         res = []
         for token_index, row in enumerate(model[self.__corpus]):

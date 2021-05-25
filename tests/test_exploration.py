@@ -61,11 +61,11 @@ class ExplorationTestCase(TestBase):
         ]
 
         expected = [
-            np.array([1, 0.67387, topic1_keywords, 0], dtype='object'),
-            np.array([1, 0.79334, topic1_keywords, 1], dtype='object'),
+            np.array([1, 0.75065, topic1_keywords, 0], dtype='object'),
+            np.array([1, 0.84832, topic1_keywords, 1], dtype='object'),
             np.array([0, 1.0, topic0_keywords, 2], dtype='object'),
             np.array([0, 1.0, topic0_keywords, 3], dtype='object'),
-            np.array([1, 0.88351, topic1_keywords, 4], dtype='object'),
+            np.array([1, 0.91701, topic1_keywords, 4], dtype='object'),
             np.array([1, 1.0, topic1_keywords, 5], dtype='object'),
             np.array([1, 1.0, topic1_keywords, 6], dtype='object'),
             np.array([1, 1.0, topic1_keywords, 7], dtype='object'),
