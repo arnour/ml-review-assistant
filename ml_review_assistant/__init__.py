@@ -1,0 +1,1 @@
+from ml_review_assistant.assistant import Assistant # noqa
