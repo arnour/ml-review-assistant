@@ -55,6 +55,13 @@ Generated files placed into provided output path:
 
 ```
 
+Or you could simply:
+
+```python
+# Read pdf files and generate cleaned tokenized dataset.csv
+assistant.dataset('/path/to/pdf/', '/path/to/csv')
+```
+
 Explore some metrics about topic modeling strategies:
 
 ```python
@@ -63,7 +70,7 @@ tokens = #read content column from csv file
 explorer = assistant.explorer(tokens)
 
 def model_builder(num_topics, corpus, dictionary):
-    pass
+    return model # Any gensim compatible model
 
 # Run model extracting 2 topics
 explorer.coherence(2, model_builder)
@@ -84,10 +91,11 @@ resume = explorer.resume(5, model_builder)
 Resumed model:
 
 ```
-   topic_id  topic_score                                     topic_keywords  document_original_index
-0         1      0.99077  ['test',, 'softwar',, 'internation',, 'studi',...                        0
-1         1      0.98137  ['test',, 'softwar',, 'internation',, 'studi',...                        1
-
+| topic_id | topic_score | topic_keywords | document_original_id |
+|----------|-------------|----------------|----------------------|
+| 4        | 0.40971     | project,...    | 0                    |
+| 4        | 0.5847      | project,...    | 1                    |
+| 4        | 0.86529     | project,...    | 2                    |
 ```
 
 ## Examples

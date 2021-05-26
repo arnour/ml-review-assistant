@@ -28,7 +28,7 @@ class ExplorationTestCase(TestBase):
         self.assertIsNotNone(scores[0][1])
 
     def test_select_best_number_of_topics(self):
-        for topics in range(1, 4):
+        for topics in range(2, 8):
             self.explorer.coherence(topics, self.__model_builder)
 
         self.assertEqual(self.explorer.best(), 2)
@@ -36,29 +36,20 @@ class ExplorationTestCase(TestBase):
     def test_select_top_tokens(self):
         expected_top = [('system', 4),
                         ('user', 3),
-                        ('trees', 3),
-                        ('graph', 3),
-                        ('human', 2),
-                        ('interface', 2),
-                        ('computer', 2),
-                        ('survey', 2),
-                        ('response', 2),
-                        ('time', 2),
-                        ('eps', 2),
-                        ('minors', 2)]
+                        ]
 
-        self.assertEqual(self.explorer.top(), expected_top)
+        self.assertEqual(self.explorer.top(2), expected_top)
 
     def test_resume_topics(self):
         result = self.explorer.resume(2, self.__model_builder)
-        topic0_keywords = [
+        topic0_keywords = ', '.join([
             'system', 'eps', 'user', 'human', 'interface',
             'response', 'time', 'graph', 'computer', 'trees'
-        ]
-        topic1_keywords = [
+        ])
+        topic1_keywords = ', '.join([
             'survey', 'computer', 'time', 'response', 'user',
             'graph', 'minors', 'trees', 'system', 'interface'
-        ]
+        ])
 
         expected = [
             np.array([1, 0.75065, topic1_keywords, 0], dtype='object'),

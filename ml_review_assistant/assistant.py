@@ -2,6 +2,7 @@ from ml_review_assistant.exploration import Explorer
 from ml_review_assistant.preparation import Preparator
 from ml_review_assistant.extraction import Extractor
 from pathlib import Path
+import tempfile
 import csv
 
 
@@ -43,8 +44,23 @@ class Assistant:
             for file in files:
                 with open(file, "r", encoding="utf-8") as textfile:
                     text = " ".join(textfile.readlines())
-                    cleaned = self.__preparator.prepare(text, stem=True)
+                    cleaned = " ".join(
+                        self.__preparator.prepare(text, stem=True)
+                    )
                     writer.writerow([file.name.replace(".txt", ""), cleaned])
+
+    def dataset(self, input_path, output_dir_path):
+        """
+        Read pdf path files and generate dataset.csv in output dir path
+
+        Args:
+            input_path (str): Path to pdf file or directory containing files
+            output_dir_path (str): Path to output directory
+        """
+
+        with tempfile.TemporaryDirectory() as tempdir:
+            self.pdf_to_text(input_path, tempdir)
+            self.text_to_csv(tempdir, output_dir_path)
 
     def explorer(self, tokens):
         """
