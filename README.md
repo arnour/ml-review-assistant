@@ -1,2 +1,99 @@
 # ml-review-assistant
+
 ML review assistant helps researchers providing insights about scientific papers
+
+---
+
+## Install
+
+This project uses pipenv as a dependencies maneger.
+
+Assuming you already have pipenv intalled, you should intall the project with:
+
+```make install```
+
+This command will create a virtual env and install all dependencies.
+
+---
+
+## How to use
+
+Assistant provides some utilities to deal with text analysis.
+
+```python
+from ml_review_assistant import Assistant
+
+assistant = Assistant()
+```
+
+Extract text from pdf files:
+
+```python
+# You could provide path to file or path to directory with pdf files as input
+assistant.pdf_to_text('/path/to/pdf/', '/path/to/txt/')
+```
+
+Clean text and generate tokenized output:
+
+```python
+# You could provide path to file or path to directory with txt files as input
+assistant.text_to_csv('/path/to/txt/', '/path/to/csv')
+```
+
+Generated files placed into provided output path:
+
+```
+/
+└── path
+    └── to
+        ├── csv
+        │   └── dataset.csv
+        ├── pdf
+        │   └── 3382494.3422167.pdf
+        └── txt
+            └── 3382494.3422167.txt
+
+```
+
+Explore some metrics about topic modeling strategies:
+
+```python
+tokens = #read content column from csv file
+
+explorer = assistant.explorer(tokens)
+
+def model_builder(num_topics, corpus, dictionary):
+    pass
+
+# Run model extracting 2 topics
+explorer.coherence(2, model_builder)
+
+# Run model extracting 5 topics
+explorer.coherence(5, model_builder)
+
+# Run model extracting 10 topics
+explorer.coherence(10, model_builder)
+
+# What extracted number of topics is the more coherent?
+print(explorer.best())
+
+# Suppose 5 topics are the best!
+resume = explorer.resume(5, model_builder)
+```
+
+Resumed model:
+
+```
+   topic_id  topic_score                                     topic_keywords  document_original_index
+0         1      0.99077  ['test',, 'softwar',, 'internation',, 'studi',...                        0
+1         1      0.98137  ['test',, 'softwar',, 'internation',, 'studi',...                        1
+
+```
+
+## Examples
+
+See `examples` folder for iteractive `jupyter` notebooks.
+
+## Specification
+
+See `spec` folder for details.

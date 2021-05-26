@@ -1,0 +1,473 @@
+Bug! Falha! Bachi! Fallo! Défaut! 程序错误! What about 
+Internationalization Testing in the Software Industry?  
+Ronnie E. S. Santos  J. Rafael Cordeiro   Yvan Labiche 
+CESAR - Recife Center for Advanced  Philips do Brasil Ltda  Dept. of Systems and Computer 
+Studies and Systems  Brazil  Engineering  – Carleton University 
+Brazil  jrafaco@gmail.com   Canada 
+  YvanLabiche@cunet.carleton.ca 
+souzasantos.ronnie@gmail.com 
+Cleyton V. C. Magalhães  Fabio Q. B. da Silva   
+Liferay Inc.  Centro de Informática – UFPE 
+Brazil  Brazil 
+cleyton.vanut@gmail.com  fabio@cin.ufpe.br 
+ABSTRACT 
+Background.  Testing  is  an  essential  activity  in  the  software  CCS CONCEPTS 
+development life cycle. Nowadays, testing activities are widely  • CCS → Software and its engineering → Software creation and 
+spread along the software development process, since software  management → Software verification and validation 
+products are continuously tested to meet the user's expectations and 
+to compete in global markets. In this context, internationalization  KEYWORDS 
+testing is defined as the practice focused on determining that a  Software Testing, Internationalization, Localization 
+software works properly in a specific language and in a particular 
+region. Aims. This study aims to explore the particularities of  ACM Reference format: 
+internationalization testing in the software industry and discuss the  Ronnie E. S. Santos, J. Raphael Cordeiro, Yvan Labiche, Cleyton V. C. 
+importance of this practice from the point of view of professionals  Magalhães and Fabio Q. B. da Silva. 2020. Bug! Falha! Bachi! Fallo! 
+Défaut! 程序错误! What about Internationalization Testing in the Software 
+working in this context. Method. We developed an exploratory 
+Industry? In ESEM’ 20: ACM/IEEE International Symposium on Empirical 
+qualitative study and conducted interviews with professionals from 
+Software Engineering and Measurement (ESEM) (ESEM’ 20), October 8–
+an international software company, in order to understand three  9,  2020,  Bari,  Italy.  ACM,  New  York,  NY,  USA,  6  pages. 
+aspects of internationalization testing: general characteristics and  https://doi.org/10.1145/3382494.3422167  
+importance of this practice, particularities of the process, and the 
+role of test automation in this context. Results. An amount of 13 
+1  Introduction 
+professionals participated in this study. Results demonstrated that 
+internationalization testing is mostly related to aspects of graphical  Testing is an essential activity in the software development life 
+user interfaces. In this context, truncation and mistranslations are  cycle,  although  it  is  commonly  simplified  as  the  process  of 
+the main faults observed, and test automation might be difficult to  observing the execution of a software in order to verify and validate 
+implement and maintain due to amount validations that are human- if it behaves as intended. [1]. Nowadays, the importance of testing 
+dependent. Conclusion. Internationalization testing is an important  activities in software development is unquestionable. Historically, 
+practice to guarantee the quality of software products developed for  there are reports demonstrating that software testing is performed 
+global markets. However, this aspect of software testing remains  for over seventy years now, as testing activities existed even before 
+unpopular or unfamiliar among professionals. This study is a step  the  establishment  of  processes,  practices  and  models  for  the 
+forward in the process of informing and enlightening academic  software  development  life  cycle  [2] [3].  Gillenson  et  al. [2] 
+researchers and practitioners in industry about this theme.   discussed the value of software testing and demonstrated how this 
+  practice evolved from an activity simply focused on checking the 
+results obtained from the source code execution to a leading and 
+Permission to make digital or hard copies of all or part of this work for personal or 
+classroom use is granted without fee provided that copies are not made or distributed  interactive  activity  essential  for  the  development  of  software 
+for profit or commercial advantage and that copies bear this notice and the full citation 
+products.  
+on the first page. Copyrights for components of this work owned by others than ACM 
+must be honored. Abstracting with credit is permitted. To copy otherwise, or republish,  Currently, especially considering agile software development, 
+to post on servers or to redistribute to lists, requires prior specific permission and/or a  testing activities are widely spread among the development process 
+fee. Request permissions from Permissions@acm.org.  
+ESEM '20, October 8–9, 2020, Bari, Italy  and the system is continuously tested. Software testing is centered 
+© 2020 Association for Computing Machinery.  on delivering quality products, focused on users experience and 
+ACM ISBN 978-1-4503-7580-1/20/10…$15.00 
+expectations. In particular, as software testing is proven to be a vital 
+https://doi.org/10.1145/3382494.3422167 activity  in  the  software  development  life  cycle  [1]  [2]  [3],  2  Methodological Procedure 
+practitioners  experienced  the  need  for  defining  and  applying 
+In this research, we conducted a qualitative study. This study was 
+different strategies and techniques for testing, in order to ensure 
+performed  based  on  the  methodology  proposed  in [10] [11]. 
+software quality. In other words, this means that the evolution of 
+Initially, this process involved the development of a broad literature 
+software products created new challenges for those involved in 
+review, which is compacted in Section 1, due to the limited number 
+software testing in order to support the development of systems to 
+of pages in the template format. This review aimed to observe gaps 
+be used in a variety of different contexts [4].  
+in the literature that could be used in the study design. The main 
+As a matter of fact, changing the context where a software will 
+outcome  of  this  step  was  the  precise  definition  of 
+be used might involve the investigation of issues not only strictly 
+internationalization testing as a construct and the identification of 
+related to the system's functionalities. In several cases, it might 
+relevant topics to be explored while interviewing practitioners. 
+require that software testing professionals address cultural and 
+regional  aspects  of  the  product,  since  the  technology  under 
+2.1 Data Collection 
+development might be available worldwide [2]. This conveys that 
+A well-established international mobile phone company was 
+software testing shall encompass methods and approaches to verify 
+invited to participate in this study. Among other characteristics, this 
+and validate software products assuming that targeted users are 
+company was chosen because the internationalization testing is 
+scattered  around  the  world  and  considering  that  the  users' 
+performed consistently across the software development process 
+experience regarding regional aspects, such as culture, language, 
+and the practice is well known to all current professionals in the 
+writing formats and other details must be observed, when quality is 
+testing teams. In addition, there is a well-established process of 
+under discussion [5]. In this context, internationalization testing is 
+planning, executing and managing internationalization tests.  
+the term commonly applied to define the facet of software testing 
+The selected company maintains operations worldwide and the 
+that is specifically focused on determining that a software product 
+team responsible for internationalization testing operates in Brazil, 
+works properly in a different language or in a specific region [6]. 
+USA, and China. The internationalization team is composed of 
+Broadly, internationalization can be defined as the process of 
+about 40 individuals responsible for activities related to software 
+developing a functional product that can operate anywhere in the 
+localization  (4  professionals),  internationalization  quality 
+world by being adaptable for cultural and regional individualities 
+assurance (14 professionals), development of tools to support 
+of a specified group of users [7]. 
+automation  and  processes  (8  professionals),  language  and 
+Although  the  nature  of  the  internationalization  testing 
+translation  services  (4  professionals),  testing  management  (6 
+demonstrates  its  importance  in  the  development  of  software 
+professionals) and supporting activities (4 professionals). Since the 
+nowadays [8] [9], e.g. software applications for global markets, this 
+present research is focused on testing activities, in this study the 
+practice  seems to  be  underrated  by  the  software  engineering 
+sample of participants was composed by 13 individuals, which 
+community.  A  non-systematic  search  on  the  main  Software 
+represents about 30% of the amount of professionals in the team. 
+Engineering repositories will retrieve only a few papers focused on 
+The summarized profile of participants selected for this study is 
+studying this practice. This scenario suggests that the amount of 
+presented in Table 1. 
+knowledge  regarding  internationalization  software  testing  is 
+retained with professionals in the software industry, which justify  Table 1. Profile of Participants 
+the development of empirical studies focused on exploring and  Background  Participants 
+Team Roles  11: Software tester 
+understanding aspects related to this practice. This is the main 
+1: Software engineer 
+motivation behind the present research. Thus, considering the  1: Project Manager 
+assumed impacts of internationalization testing on software quality  Genders  9: Males 
+nowadays, the present research is an exploratory study designed to  4: Female 
+collect  and  interpret  the  perspective  and  the  opinions  of  Education  3: Undergraduates 
+8: B.Sc. 
+practitioners regarding this practice. In this process, data was 
+2: M.Sc. 
+collected and analyzed in order to answer three research questions:   Experience  with  5: < 3 years 
+RQ1. How internationalization testing can be characterized in  software testing  4: 3 – 5 years 
+the software development process?   4: > 6 years 
+Experience  with  10: < 3 years 
+RQ2.  What  are  the  particularities  of  internationalization 
+internationalization  1: 3 – 5 years 
+testing and how does it differ from other testing practices? 
+testing  2: > 6 years 
+RQ3. What is the role of test automation in internationalization   
+testing?  
+As recommended in the literature [10] [11] semi-structured 
+From  this  introduction  and  this  brief  background  about 
+interviews  were  performed  to  collect  multiple  data  from  the 
+internationalization testing, the paper is organized as follows. In 
+selected participants in order to access different viewpoints about 
+Section 2, we detail the research method applied in this study. In 
+the theme. The interview script was composed of eleven questions 
+section 3, we present and discuss the main findings. Finally, in 
+involving  general  aspects  of  the  internationalization  testing, 
+Section 4, the general conclusions and directions for future research 
+particularities of the practice regarding types of bugs, techniques 
+are presented.  
+and limitations faced in the process, and finally, aspects related to 
+ 
+ test automation in this context. The validation of the interview  codes (Figure 1). Secondly, the codes arising from each individual 
+scripts was accessed by conducting a preliminary interview with  interview were constantly compared to codes in the same interview 
+two software testers and one academic researcher. The script  and from other interviews and arising similarities allowed us to 
+validation aimed to estimate the time required to perform the actual  group them into categories (Figure 2). Third, relationships among 
+interviews  and  to  adjust  the  questions  when  necessary,  e.g.,  codes and categories were identified through axial coding (Figure 
+wording and sequence of questions. The final version of the  3). Finally, a narrative was built (Selective Coding).  
+interview script (English translation) is presented in Table 2. The   
+data was collected by an interviewer and supported by a second 
+researcher. All interviews were recorded producing about 5 hours 
+of  audio,  which  were  posteriorly  transcribed  to  support  data 
+analysis. 
+Table 2. Interview Script 
+Topic  Questions 
+Background  1. How long have you been working with software 
+testing and with internationalization testing? 
+Internationaliz 2. How would you define internationalization testing in 
+ 
+ation Software  software development? 
+Figure 1: Open Coding 
+Testing  in  3. Please, summarize the process that you follow to 
+General  perform internationalization testing.   
+Tests and Bugs  4.  What  are  the  most  frequent  types  of  bugs  in 
+in  internationalization testing? 
+Internationaliz 5. Describe tests that are exclusively executed in an 
+ation Software  internationalization testing process. 
+Testing  6. Describe types of failures that are not exclusively an 
+internationalization issue, but that would affect the 
+internationalization testing. 
+Automation in  7. How would you describe the automation process in 
+Internationaliz the context of internationalization testing? 
+ation Software  8. What are the efforts and costs associated with   
+Testing  automation of tests in software projects?   Figure 2: Building Code Categories 
+Limitations  in  9. What was the main difficulty that you had to face   
+Internationaliz while working with internationalization testing? 
+ation Software  10. What would you point out as the main limitation in 
+Testing  internationalization testing? 
+Final  11. To conclude, please, comment about the importance 
+Considerations  of internationalization testing in software development.  
+ 
+2.2 Data Analysis   
+Figure 3: Axial Coding and Relationships 
+The objective of qualitative analysis is to consolidate, reduce,   
+and interpret all data obtained from the field [14]. In this study, this  Following the guidelines [10] [11] [15], we concluded data 
+process was performed by labeling and coding the transcripts  analysis by comparing our findings with evidence available on the 
+obtained  from  the  interviews  in  order  to  comprehend  the  literature  about  the  phenomenon  under  investigation.  This 
+perspective  of  participants  regarding  the  topic  under  study.  comparison of results aimed to sharpen construct definitions and 
+Following the guidelines, we performed data analysis in parallel  raise theoretical level, by contrasting the case with related studies.  
+with data collection, in incremental and iterative steps [12] [13] 
+developed in three phases of coding [14] [15]:   2.3 Threats to Validity 
+a)  Open  Coding:  The  process  of  “breaking  down”  the 
+First,  validity  and  reliability  aspects  usually  applied  in 
+transcriptions into discrete parts, which were closely examined 
+positivist  experimental  research  might  not  be  suitable  for 
+and compared, looking for similarities and differences, in order 
+qualitative studies, such this study. Instead, we accessed validity 
+to group concepts into representative categories.   
+and reliability of results from the perspective of interpretative 
+b)  Axial Coding: The process of developing an exhaustive and 
+approaches [13] [14]. In this sense, the definition of constructs 
+comprehensive analysis of the defined codes in order to find 
+obtained in the interviews were contrasted to the definitions in the 
+relationships  and  emphasize  connections  among  different 
+literature to assure adequacy. Second, internal validity is related to 
+categories.  
+the  degree  of  how  closely  the  obtained  results  match  the 
+c)  Selective Coding: The process of determining the interpretation 
+investigated  reality.  To  achieve  internal  validity,  we  targeted 
+of the case by constructing a comprehensive explanation to the 
+maximum  variation  on  the  sources  of  data  by  interviewing 
+phenomenon under investigation. 
+participants in different roles, with different perspectives, and with 
+Figures 1 to 3 illustrate the data analysis process conducted in 
+different levels of experience. Third, reliability states that the 
+this research. Firstly, the interview's transcripts were divided into 
+ results  can  be  replicated  when  necessary.  In  this  study,  for  Emphasis  Culturally, there are different ways of emphasizing a word 
+reliability purposes, we recorded the audio of all interviews in order  and  or a sentence, depending on the language, e.g., to use bold 
+Highlights  or a different color will depend on local standards. 
+to avoid losing any important information during data collection. In 
+Image  Analysis of aspects related to images, graphics and videos, 
+addition, we provided the interview script and reported the details 
+View  such as colors, sizes and arrangements considering different 
+of data collection and data analysis in order to support replications.  languages and cultures. Further, there is a particular need for 
+Finally, an important aspect of this research needs to be  analyzing such images and the context where they will be 
+highlighted. As expected in qualitative approaches, such as case  applied, in order to avoid cultural or regional misleading. 
+ 
+studies, the findings obtained in this study are dependent on the 
+The findings summarized in Table 3 demonstrated that the key 
+context where the data was collected. This type of methodological 
+aspect of internationalization testing is to guarantee that users’ 
+approach  will  rarely  allow  generalization  of  results  to  other 
+experience will not be impaired while executing the software in 
+contexts. Nevertheless, it is likely that practitioners can adapt the 
+their language. Participants described internationalization testing in 
+results to other realities, by analyzing the reported findings and 
+software development as a quality practice that aims to verify the 
+contrasting them with their own environment. 
+flexibility and versatility of a software in terms of locale and 
+language. This practice is focused but not limited to user experience 
+3 Findings and Discussions  aspects, such as, grammar, time and date formats, display of non 
+ASCII characters, among others, as illustrated in the quotations 
+Our findings demonstrated that internationalization testing plays an 
+below, which were extracted from the interviews.  
+important role in the software quality process. This is one of the 
+- “(…) these are tests that allow a user from another country, other 
+main practices established to guarantee that the software meets the 
+language, to have the same experience (…)”. 
+expectation of different users around the globe. In general, this  -  “So the general definition would be like, you get your phone and you can 
+practice aims to accommodate variations of idiom and cultural  use it in your own country, in your language, and it gets all the formats 
+aspects into the software, providing to users a consistent scheme of  and it meets the expectations that you have”. 
+appearance, feel, and functionalities across different language   
+versions. Regarding this, participants were interviewed to describe  Interviewees  reported  that  the  process  of  performing 
+internationalization testing based on their experience in order to  internationalization  testing  might  extend  the  general  testing 
+answer:  RQ1.  How  internationalization  testing  can  be  activities in a complimentary way, as the software products are 
+characterized in the software development process?  tested beyond system’s  functionalities. For instance, in many 
+The analysis of the answers indicated that internationalization  companies, testing activities are planned and performed aiming to 
+tests are usually performed in cycles of sanity, regression and  attest whether a given requirement is correctly implemented or not. 
+exploratory  testing.  Nevertheless,  these  activities  are  not  On the other hand, internationalization testing would extend this 
+exclusively focused on testing activities, it might also include  test to verify how the users experience this requirement while using 
+validations performed by professional linguists, since software  the software in their idiom, as illustrated as follows. 
+testers are unlikely to hold deep knowledge about all idioms  - “(…). This is about worrying not just about the software functions but 
+available in a product. Therefore, internationalization testing ought  also about users’ understanding and how clear the information is 
+presented.”  
+to be conducted as an interdisciplinary process. Most of the 
+- “Most of the tests that we do extends the focus of functional issues, as we 
+software aspects covered by internationalization testing refer to 
+try to cover localization issues, which includes translation, but not limited 
+screen layout and to user interaction specifications, as presented in 
+to, plus we try to cover formats and patterns related to content exhibition.”  
+Table 3.   
+Table 3. Aspects of Internationalization Testing  When asked to describe the limitations in the process of 
+Aspect  Description  internationalization testing, interviewees discussed that usually 
+Density  Refers to the fact that different languages would need larger 
+these tests require relatively high amounts of workload on manual 
+text size to be readable. 
+(visual) validation. Therefore, time is a limitation in this context, 
+Order and  In some languages, words are written in a sequence order 
+Sequence  different from the source language, e.g., adjectives are  even when automation scripts are available. Another limitation of 
+written in a different order in a phrase, when considering  this practice lies in the fact that internationalization tests are not as 
+English and Portuguese languages. Therefore, this must be  popular  as other  types of  tests,  which  makes it  difficult  for 
+an important aspect of text adequacy.   professionals to obtain resources, tools and study material to rely. 
+Space  and  After translation, some languages take more space to be  Training activities are usually affected by the lack of information 
+Display  presented. Therefore, interface elements, such as buttons, 
+available about this practice and even skilled testers who started to 
+text fields or lists need to be adjusted to expand accordingly.   
+work in this particular context might face difficulties to understand 
+Wording  Focuses  on  avoiding  mistranslations,  e.g.,  the  exact 
+the required validations. Participants reported that their tasks are 
+translation makes less sense in the target idiom than it does 
+in the source idiom or the translation is a double entendre.  usually unfamiliar even for co-workers from different teams in the 
+Direction  Some languages, such as, Arabic or Hebrew are written in a  same  company. Quotations below illustrate the limitations of 
+and  right-to-left (RTL) pattern, that is, writing starts from the  internationalization testing. 
+Alignment  right of the page and continues to the left. Therefore, screen 
+- “I came from a totally different context where we used to perform 
+layout ought to follow the alignment accordingly. 
+functional tests (…). This was my main difficulty, I had in mind the most 
+ 
+ common test processes, the most popular, and I had to change this  failures might interfere on internationalization issues and also 
+mindset  to  internationalization,  which  at  the  time  was  something  affect the internationalization testing process.  On the other hand, 
+somehow unknown for me.”  there is no evidence demonstrating the opposite scenario, that is, 
+- “One limitation that I can think right now is that there are many things 
+internationalization testing/issues affecting other types of tests, 
+that cannot be automatically identified and checked, without manual 
+although due to the nature of these tests, we can hypothesize that 
+interaction. How to solve this? 
+  internationalization tests would affect usability testing.  
+Following,  participants  answered  questions  regarding  the  - “I would say that when we are performing internationalization testing, 
+sometimes, we end up coming across problems that are not specifically 
+particularities of internationalization testing in order to answer: 
+our target, they would fit more like functional tests.”  
+RQ2. What are the particularities of internationalization testing 
+-  “Of course, if there is a system problem that blocks me from accessing 
+and how does it differ from other testing practices? Regarding this, 
+part of the content on the software, it will directly affect the process. 
+participants pointed out that the most risky fault observed in   
+internationalization tests is the problem of truncation. In general,  The  next  aspect  investigated  in  this  study  was  testing 
+presenting texts in the graphical user interface using a variety of  automation. Thus, data was collected from participants in order to 
+languages might require that engineers reduce such texts, in order  answer:  RQ3.  What  is  the  role  of  test  automation  in 
+to adapt them to the size of the screen to be displayed. In many  internationalization testing? Nowadays, test case automation is a 
+cases, the shortened version of a text is obtained by removing the  crucial activity in software testing, since it supports the execution 
+end of a sentence, resulting in sentences finishing with suspension  of a large amount of test cases in a short period of time. In 
+points, which most likely will result in writing ellipsis. The problem  internationalization testing, interviewed participants reported that 
+in this case, considering software quality, is that the resulting  automation is an essential portion of the process, since repetition of 
+shortened text might confuse the user and damage the message's  test cases is a common characteristic in this context. For instance, 
+sense, and negatively affect users' experience. In the worst-case  a product that will be launched covering 60 idioms, it is likely to 
+scenario,  the  truncated  message  can  completely  change  the  have several test suites executed and repeated 60 times, one for 
+information  displayed  and  confuse  or  offend  the  users,  e.g.,  each idiom. In this case, automation will allow better performance 
+presenting inappropriate content, which might result in customers  in the testing execution by reducing the time to complete it, as 
+abandoning the software for a similar option available in the  illustrated in the quotes below. 
+market. This discussion is demonstrated in the quotations extracted  - “We have tests called locale dependent (…) and this kind of test will be 
+from the interviews.  executed in several different idioms, like 40, or 50, or 60 times, depending 
+- “There are truncation issues, when a text string is not completely  on the scope that was planned.”  
+displayed in the screen or it is being overlapped by images or some other  - “So automation is a great help, since we work to support several 
+text.”   languages, there is a lot of repetitive work to be done”.  
+- “Truncation and mistranslations [about most frequent issues]. But with   
+truncations you have to be careful, since you can have like, bad words or  Therefore, test automation will decrease the repetitiveness of 
+insults appearing on the screen.”   work  allowing  professionals  to  focus  on  other  activities  that 
+  inevitably requires human validation. However, practitioners ought 
+Further,  interviewees  reported  mistranslation,  wrong  to determine a balance in this scenario, since internationalization 
+formatting and pattern suitability as other types of common issues  testing is still highly dependent on human-centered activities, and 
+identified during internationalization testing. In general, these are  many validations might not be suitable via automation scripts. In 
+problems that can negatively affect how users interact with the  fact, interviewees revealed that, nowadays, there are many libraries 
+software. However, these faults tend to produce a relatively small  available  to  facilitate  programming  for  test  case  automation. 
+negative effect in comparison to the truncation issues. Professionals  However, most of them will only allow checking formats and 
+reported that it is more likely for users to accept a time format fault,  patterns, which will cover only a fraction of internationalization 
+than a truncation that results in an explicit inappropriate content.  tests. Thus, tests related to space, text format and alignment can be 
+Quotations below illustrate this finding.  easily automated. On the other hand, tests related to density, 
+- “Resources can present a poor translation, such as inconsistent formats in  emphasis,  wording  and  images  might  require  more  human 
+a specific country, like, date format, or like French, in which punctuation 
+interaction, which could lead to partial automation. Finally, there 
+needs a space after the word”. 
+are faults related to mistranslation and specially truncation that 
+- “It ends up being mistranslation issues, like, sometimes something is 
+might not be simply checked using test scripts, since the meaning, 
+translated but for a different context”.  
+- “Sometimes developers are not careful regarding which format fits better  the feeling and the presentation of the content will define whether 
+for a given locale that they are developing targeting (…) and usually, we  a test fails or not. Quotations below illustrate this discussion. 
+have to point out this kind of problem.”  - “There are things that need us to perform resource analysis, if it was 
+  translated, you have to visually check this.” 
+Regardless of the fact that internationalization software testing  - “Currently, we can’t validate video (movie) contents, for instance, or 
+focuses on a particular category of problems, this practice is not an  anything that needs an interaction beyond touching it". [meaning visual 
+isolated testing activity. The data collected in the interviews, and  validation] 
+ 
+presented below, revealed dependencies of internationalization 
+In  summary,  our  findings  demonstrate  the  relevance  of 
+tests and other types of tests. This means that general software 
+internationalization software testing and its importance to deliver 
+ software  products  focused  on  improving  users'  experience  findings are a step forward into enlightening practitioners, reducing 
+independently  of  what  language  they  speak.  On  some  level,  the unfamiliarity of this practice, which has been reported on the 
+internationalization testing is also a unique strategy that might help  interviews  and  also  in  the  literature.  Further,  for  academic 
+to create or improve software value, helping companies to achieve  researchers, this study revealed the need for the development of 
+and retain global markets. Quotations below reinforce these results.  studies focusing on proposing methods, tools and guidelines that 
+- “I'd say that validating the user experience regarding internationalization  could support this practice. In particular, test automation is a topic 
+is extremely important, because software products with poor translations  that requires assistance in this context. 
+end up appearing to be low cost products with low quality.”  As for the next steps of this study, future research might include 
+- “It’s essential. (…) You have to provide users with the opportunity to use 
+the development of a mapping study to collect evidence about 
+the software in their native language. In the end, they feel more 
+internationalization testing from papers published over the years, in 
+comfortable. They see that the company cares about them.” 
+order to enlarge the body of knowledge about the theme and extend 
+comparisons with the present findings. Further, more opinions and 
+4 Conclusions and Future Research  experiences  from  professionals  are  available  on  online 
+communities  where  practitioners  discuss  aspects  of  software 
+The present research is a qualitative study designed to explore and 
+quality, such as Stack Overflow, and exploring these data might be 
+discuss aspects related to internationalization testing in the software 
+a  relevant  way  to  improve  the  obtained  results  and  raise 
+industry. In this study, we investigated a global mobile phone 
+generalization. Finally, since our research protocol demonstrated to 
+company that operates worldwide and develops products used by 
+be efficient in collecting information from the field, a replication of 
+millions of customers in a wide variety of regions. In this company, 
+this study to collect data from other companies is planned to be 
+an internationalization team composed of about 40 professionals is 
+conducted. 
+responsible for planning and performing processes focused on the 
+delivery of software products adaptable for over 70 languages. 
+REFERENCES 
+From the amount of professionals on this team, we collected 
+[1]  Bertolino,  Antonia.  "Software  testing  research:  Achievements,  challenges, 
+qualitative data from a group of 13 individuals (30% of the team) 
+dreams." 2007 Future of Software Engineering. IEEE Computer Society, 2007. 
+in order to obtain perceptions, opinions and experiences about the 
+[2] Gillenson, Mark L., et al. "A Literature Review of Software Test Cases and Future 
+practice of internationalization testing.   Research."  2018  IEEE  International  Symposium  on  Software  Reliability 
+In summary, we concluded that there is an existing close  Engineering Workshops (ISSREW). IEEE, 2018. 
+relation between internationalization testing and several aspects of  [3] Alaqail, Hesham, and Shakeel Ahmed. "Overview of Software Testing Standard 
+ISO/IEC/IEEE 29119." International Journal of Computer Science and Network 
+users' experience. Consequently, the internationalization test cases 
+Security (IJCSNS) 18.2 (2018): 112-116. 
+are planned and executed in order to validate the system from the  [4] Bartram, Dave. "The internationalization of testing and new models of test delivery 
+perspective of how end users will experience the software in their  on the Internet." International Journal of Testing 6.2 (2006): 121-131. 
+own language. Due to this characteristic,  many of the faults  [5] Abufardeh, Sameer, and Kenneth Magel. "QA/Testing Bi-directional Languages 
+Software: Issues and Challenges." 2008 32nd Annual IEEE International 
+identified in this context are related to the system's GUI and how it 
+Computer Software and Applications Conference. IEEE, 2008. 
+is presented and perceived after idiom and locale adaptations. On a 
+[6]  Chang,  David  W.,  and  William  E.  Malloy.  "Method  for  automating 
+daily basis, professionals working with internationalization testing  internationalization software testing." U.S. Patent No. 7,895,576. 22 Feb. 2011. 
+target several aspects of software appearance, since their main  [7] Archana, J., Senthil Raja Chermapandan, and Saravanan Palanivel. "Automation 
+framework  for  localizability  testing  of  internationalized  software."  2013 
+scope focuses on how comfortable users would feel using the 
+International Conference on Human Computer Interactions (ICHCI). IEEE, 
+system in their idiom. Thus, tests are designed and executed in 
+2013. 
+order to identify and fix faults related to truncation, mistranslations  [8] Abufardeh, Sameer, and Kenneth Magel. "Software internationalization: testing 
+and misunderstandings with patterns, format and values in specific  methods for bidirectional software." 2009 Fifth International Joint Conference on 
+regions. In addition, we observed that test case automation is an  INC, IMS and IDC. IEEE, 2009. 
+[9]  Ramler,  Rudolf,  and  Robert  Hoschek.  "Process  and  Tool  Support  for 
+important practice in internationalization testing, since it reduces 
+Internationalization and Localization Testing in Software Product Development." 
+the effort of  executing the same test  for a large number of  International Conference on Product-Focused Software Process Improvement. 
+languages. It also reduces the repetitiveness in this process, which  Springer, Cham, 2017. 
+might positively affect professionals’ by reducing monotony at  [10] Yin, R.K. Case study Research: Design and Methods, third ed., Sage, London, 
+2003. 
+work. However, practitioners ought to be aware of the existing 
+[11] Eisenhardt, K. M. Building Theories from Case Study Research. The Academy of 
+balance among the tests that can be automatically executed and 
+Management Review, 1989. 
+those that require human interaction in order to be successfully  [12]  Merriam,  B.  S.  2009.  Qualitative  Research:  A  Guide  to  Design  and 
+completed.  Implementation. Jossey-Bass, San Francisco. 
+[13] MERRIAM, S. What Can You Tell From An N of l?: Issues of validity and 
+This study has implications for both academy and practice. For 
+reliability in qualitative research. PAACE Journal of lifelong learning, 1995, 4, 
+practitioners the present results are a reliable source of information 
+50-60. 
+about the basics of internationalization testing, covering general  [14] Seaman, C.B. 1999. Qualitative methods in empirical studies of Software 
+aspects, main characteristics and particularities of this practice,  Engineering. IEEE Transactions on Software Engineering, 25, 4, 557–572. 
+such as specific types of faults that are likely to be observed in this  [15] Strauss, Anselm, and Juliet Corbin. Basics of qualitative research. Sage 
+publications, 1990. 
+scenario. Thus, the present study can be used for training purposes 
+and  also  for  supporting  managerial  activities.  Therefore,  our 
+ 
+ 

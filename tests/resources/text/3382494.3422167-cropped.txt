@@ -1,0 +1,12 @@
+程序错误
+–
+–
+ABSTRACT 
+Background.  Testing  is  an  essential  activity  in  the  software 
+development life cycle. Nowadays, testing activities are widely  • CCS → Software and its engineering → Software creation and 
+management → Software verification and validation
+程序错误
+In ESEM’ 20: ACM/IEEE International Sy
+Software Engineering and Measurement (ESEM) (ESEM’ 20), October 8–
+or 
+–

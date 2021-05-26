@@ -1,15 +1,15 @@
 
 .DEFAULT_GOAL := build
-.PHONY: build package test coverage lint clean
+.PHONY: install package test coverage lint clean
 PROJ_SLUG = ml_review_assistant
 PY_VERSION = 3.8
 LINTER = flake8
 FIXER = autopep8
 
-build:
+install:
 	pip install --editable .
 
-package: clean docs
+package: clean
 	python setup.py sdist
 
 test:
