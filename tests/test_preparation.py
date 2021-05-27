@@ -1,4 +1,4 @@
-from ml_review_assistant.preparation import Preparator
+from ml_text_assistant.preparation import Preparator
 from . import TestBase
 
 

@@ -1,7 +1,7 @@
 from os import path
 from . import TestBase
-from ml_review_assistant.assistant import Assistant
-from ml_review_assistant.exploration import Explorer
+from ml_text_assistant.assistant import Assistant
+from ml_text_assistant.exploration import Explorer
 import tempfile
 import unittest
 from unittest.mock import patch, Mock

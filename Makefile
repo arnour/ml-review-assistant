@@ -1,7 +1,7 @@
 
 .DEFAULT_GOAL := build
 .PHONY: install package test coverage lint clean
-PROJ_SLUG = ml_review_assistant
+PROJ_SLUG = ml_text_assistant
 PY_VERSION = 3.8
 LINTER = flake8
 FIXER = autopep8
@@ -16,7 +16,7 @@ test:
 	coverage run -m unittest
 
 coverage:
-	coverage report --include="ml_review_assistant/**"
+	coverage report --include="ml_text_assistant/**"
 
 lint:
 	$(LINTER) $(PROJ_SLUG)

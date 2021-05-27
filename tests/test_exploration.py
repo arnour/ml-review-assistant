@@ -1,5 +1,5 @@
 from . import TestBase
-from ml_review_assistant.exploration import Explorer
+from ml_text_assistant.exploration import Explorer
 from gensim.models.nmf import Nmf
 from gensim.test.utils import common_texts
 import numpy as np

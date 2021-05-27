@@ -1,6 +1,6 @@
-# ml-review-assistant
+# ml-text-assistant
 
-ML review assistant helps researchers providing insights about scientific papers
+ML text assistant helps researchers extract and prepare texts from PDF's. It also provides coherence analysis utility for gesim topic extraction models.
 
 ---
 
@@ -21,7 +21,7 @@ This command will create a virtual env and install all dependencies.
 Assistant provides some utilities to deal with text analysis.
 
 ```python
-from ml_review_assistant import Assistant
+from ml_text_assistant import Assistant
 
 assistant = Assistant()
 ```
@@ -88,7 +88,7 @@ print(explorer.best())
 resume = explorer.resume(5, model_builder)
 ```
 
-Resumed model:
+Resumed model. It shows the main topic for each document in the corpus:
 
 ```
 | topic_id | topic_score | topic_keywords | document_original_id |

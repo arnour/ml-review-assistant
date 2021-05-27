@@ -1,0 +1,1 @@
+from ml_text_assistant.assistant import Assistant # noqa

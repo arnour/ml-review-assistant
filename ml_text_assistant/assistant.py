@@ -1,6 +1,6 @@
-from ml_review_assistant.exploration import Explorer
-from ml_review_assistant.preparation import Preparator
-from ml_review_assistant.extraction import Extractor
+from ml_text_assistant.exploration import Explorer
+from ml_text_assistant.preparation import Preparator
+from ml_text_assistant.extraction import Extractor
 from pathlib import Path
 import tempfile
 import csv

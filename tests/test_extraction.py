@@ -1,5 +1,5 @@
 from . import TestBase
-from ml_review_assistant.extraction import Extractor
+from ml_text_assistant.extraction import Extractor
 
 
 class ExtractionTestCase(TestBase):
