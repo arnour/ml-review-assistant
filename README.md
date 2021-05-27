@@ -16,6 +16,18 @@ This command will create a virtual env and install all dependencies.
 
 ---
 
+## How to develop
+
+Use Makefile functions to help you develop for this project.
+
+```make build```
+
+```make test```
+
+```make coverage```
+
+---
+
 ## How to use
 
 Assistant provides some utilities to deal with text analysis.
